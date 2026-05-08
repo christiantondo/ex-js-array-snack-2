@@ -89,6 +89,19 @@ console.log(fullPricedBook)
 // - Crea una variabile booleana (areAuthorsAdults) per verificare se gli autori sono tutti maggiorenni.
 // - Ordina l’array authors in base all’età, senza creare un nuovo array. (se areAuthorsAdult è true, ordina in ordine crescente, altrimenti in ordine decrescente).
 
+const authors = books.map(book => book.author);
+const areAuthorsAdults = authors.every(author => author.age >= 18);
+console.log("Tutti gli autori sono adulti?", areAuthorsAdults);
+
+if (areAuthorsAdults) {
+    authors.sort((a, b) => a.age - b.age);
+    console.log(`Gli autori sono tutti adulti? ${areAuthorsAdults}, allora ordino in ordine crescente`);
+} else {
+    authors.sort((a, b) => b.age - a.age);
+    console.log(`Gli autori sono tutti adulti? ${areAuthorsAdults}, allora ordino in ordine decrescente`);
+}
+console.log(authors);
+
 // Snack 4 - Calcola l’età media:
 // - Creare un array (ages) che contiene le età degli autori dei libri.
 // - Calcola la somma delle età (agesSum) usando reduce.

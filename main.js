@@ -67,13 +67,21 @@ const availableBooks = books.filter(book => book.available);
 console.log(availableBooks);
 
 const discountedBooks = availableBooks.map(book => {
-    return {
-        ...book, price: (parseFloat(book.price) * 0.8 * 100) / 100
-    }
-})
-console.log(discountedBooks)
+    const price = parseFloat(book.price.replace('€', ''));
+    const discountedPrice = (price * 0.8).toFixed(2);
 
-const fullPricedBook = discountedBooks.find(book => Number.isInteger(book.price))
+    return {
+        ...book,
+        price: `${discountedPrice}€`
+    }
+});
+console.log(discountedBooks);
+
+const fullPricedBook = discountedBooks.find(book => {
+    const price = parseFloat(book.price.replace('€', ''));
+    return Number.isInteger(price);
+});
+
 console.log(fullPricedBook)
 
 // Snack 3 - Ordinare gli Autori:

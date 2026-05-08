@@ -107,6 +107,11 @@ console.log(authors);
 // - Calcola la somma delle età (agesSum) usando reduce.
 // - Stampa in console l’età media degli autori dei libri.
 
+const ages = books.map(book => book.author.age);
+const agesSum = ages.reduce((acc, age) => acc + age, 0);
+console.log("Lista delle età:", ages);
+console.log("La somma delle età è:", agesSum);
+console.log(`L'età media è: ${agesSum / ages.length}`);
 // Snack 5 (Bonus) - Raccogli i libri:
 // Nota: a differenza di quanto visto finora negli esempi, per accedere all'API utilizzare l'url base:
 // http://localhost:3333
